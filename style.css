@@ -27,6 +27,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-white);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -65,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
-/* HEADER */
+
 header {
     background-color: var(--bg-white);
     box-shadow: var(--shadow);
@@ -73,6 +74,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color 0.3s ease;
 }
 
 header .container {
@@ -87,7 +89,7 @@ header .container {
     font-weight: 700;
 }
 
-/* NAVIGATION */
+
 nav ul {
     display: flex;
     list-style: none;
@@ -148,6 +150,7 @@ nav ul li a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
 .hero::before {
@@ -228,9 +231,10 @@ nav ul li a:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ABOUT */
+
 .about {
     padding: 100px 0;
+    transition: background-color 0.3s ease;
 }
 
 .about-content {
@@ -286,10 +290,11 @@ nav ul li a:hover {
     color: var(--text-light);
 }
 
-/* SKILLS */
+
 .skills {
     padding: 100px 0;
     background-color: var(--bg-light);
+    transition: background-color 0.3s ease;
 }
 
 .skills-list {
@@ -321,9 +326,10 @@ nav ul li a:hover {
     animation: skillFill 2s ease;
 }
 
-/* PROJECTS */
+
 .projects {
     padding: 80px 0;
+    transition: background-color 0.3s ease;
 }
 
 .projects-grid {
@@ -407,6 +413,7 @@ nav ul li a:hover {
 .contact {
     padding: 100px 0;
     background-color: var(--bg-light);
+    transition: background-color 0.3s ease;
 }
 
 .contact-content {
@@ -459,10 +466,12 @@ nav ul li a:hover {
     padding: 30px;
     border-radius: 10px;
     box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
 }
 
 .form-group {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .form-group label {
@@ -487,6 +496,33 @@ nav ul li a:hover {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.error-message {
+    color: #ff3860;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
 }
 
 footer {
@@ -573,7 +609,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Animations */
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -631,6 +667,24 @@ footer {
         display: none;
     }
     
+    nav ul.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-white);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 100;
+    }
+    
+    nav ul.active li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
     .menu-toggle {
         display: flex;
     }
@@ -648,3 +702,98 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+.dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 15px;
+    transition: var(--transition);
+}
+
+.dark-mode-toggle .toggle-icon {
+    font-size: 1.2rem;
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--bg-white);
+}
+
+body.dark-mode header {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .hero,
+body.dark-mode .skills {
+    background-color: #252542;
+}
+
+body.dark-mode .contact {
+    background-color: #252542;
+}
+
+body.dark-mode .contact-form {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .project {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .section-title,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: var(--bg-white);
+}
+
+body.dark-mode .section-subtitle,
+body.dark-mode .about-text p,
+body.dark-mode .detail-value,
+body.dark-mode .contact-info p {
+    color: #b8b8b8;
+}
+
+body.dark-mode .detail-title {
+    color: var(--bg-white);
+}
+
+body.dark-mode .project p {
+    color: #b8b8b8;
+}
+
+body.dark-mode nav ul li a {
+    color: var(--bg-white);
+}
+
+body.dark-mode .menu-toggle span {
+    background-color: var(--bg-white);
+}
+
+body.dark-mode .form-group label {
+    color: var(--bg-white);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: #2d2d4d;
+    border-color: #3f3f67;
+    color: var(--bg-white);
+}
+
+body.dark-mode .dark-mode-toggle .toggle-icon {
+    content: "☀️";
+}
+
+body.dark-mode .secondary-btn {
+    color: var(--bg-white);
+}
+/*smh had to update some codes for interactivity with js*/
+/* idk what most of the codes do */
